@@ -16,6 +16,12 @@
 
 add_action('admin_menu', 'subscription_init_menu');
 
+require_once plugin_dir_path(__FILE__) . 'includes/acws-api.php';
+require_once plugin_dir_path(__FILE__) . 'includes/acws-callbacks.php';
+require_once plugin_dir_path(__FILE__) . 'includes/acws-hooks.php';
+
+
+
 
 
 
@@ -71,6 +77,9 @@ function subscription_admin_enqueue_scripts()
         '1.0.0',
         true
     );
+    wp_localize_script('subscription-script', 'subscriptionPluginData', array(
+        'apiUrl' => rest_url('acws/v1/')
+    ));
 
     wp_enqueue_style(
         'subscription-style',
@@ -78,8 +87,16 @@ function subscription_admin_enqueue_scripts()
         array(), // Dependencies, if any
         '1.0.0' // Version number
     );
-
-
-    // wp_script_add_data('checkoutPlugin-script', 'type', 'module');
-
+    wp_enqueue_style(
+        'backend-style',
+        plugin_dir_url(__FILE__) . 'backend.scss',
+        array(), // Dependencies, if any
+        '1.0.0' // Version number
+    );
 }
+
+$callbacks = new Acws_callbacks();
+
+$api  = new Acws_api($callbacks);
+
+new Acws_hooks();
