@@ -47,7 +47,7 @@ function subscription_admin_page()
 
 add_action('admin_enqueue_scripts', 'subscription_admin_enqueue_scripts');
 
-add_action("wp_enqueue_scripts", "subscription");
+
 
 /**
  * Enqueue scripts and styles.
@@ -56,23 +56,19 @@ add_action("wp_enqueue_scripts", "subscription");
  */
 
 
-function subscription()
-{
-    if (is_checkout()) {
-        wp_enqueue_script(
-            'checkoutPlugin-conditional-fields',
-            plugin_dir_url(__FILE__) . 'assets/js/fieldScipt.js',
-            array('jquery', 'wp-element'),
-            '1.0.0',
-            true
-        );
-    }
-}
+
 function subscription_admin_enqueue_scripts()
 {
     wp_enqueue_script(
         'subscription-script',
         plugin_dir_url(__FILE__) . 'build/index.js',
+        array('wp-element'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'backend-script',
+        plugin_dir_url(__FILE__) . 'js/backend.js',
         array('wp-element'),
         '1.0.0',
         true
@@ -93,6 +89,7 @@ function subscription_admin_enqueue_scripts()
         array(), // Dependencies, if any
         '1.0.0' // Version number
     );
+    
 }
 
 $callbacks = new Acws_callbacks();

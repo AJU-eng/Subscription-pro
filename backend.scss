@@ -1,3 +1,75 @@
-.acws-inputType{
-    width: 10px;
+.acws-general-wrapper {
+    margin-left: 163px;
+    margin-top: 20px;
+}
+
+.acws-subscriptionPrice-inputs{
+    width: 135px !important;
+    margin-top: -10px !important;
+}
+
+.acws-sub-div1{
+    display: flex;
+    gap: 20px;
+}
+
+.acws-expire-input{
+   width: 444px !important;
+}
+
+.acws-sub-div2{
+    margin-top: 20px;
+}
+
+.acws-signup-div {
+    clear: both; /* Ensures this div appears below the flex container */
+    margin-top: 70px; /* Adds space between sections */
+    width: 444px;
+}
+
+.acws-freeTrial-div{
+    clear: both;
+    margin-top: 120px;
+}
+
+.acws-free-div{
+    display: flex;
+    gap: 15px;
+}
+
+.acws-free-input{
+    width: 215px !important;
+}
+
+.acws-sales-div{
+    clear: both;
+    margin-top: 70px;
+}
+.acws-sales-div p{
+    clear: both;
+    margin-top: 70px;
+}
+
+.acws-salesDates-div{
+    // visibility: hidden;
+    display: none;
+    clear: both;
+    margin-top: 10px;
+    
+}
+.acws-salesDate-div{
+    // visibility: hidden;
+    display: block;
+    clear: both;
+    margin-top: 10px;
+    
+}
+
+.acws-saleDate-div{
+    clear: both;
+    margin-top: 20px;
+}
+.acws-saleDate-div p{
+    clear: both;
+    margin-top: 70px;
 }
