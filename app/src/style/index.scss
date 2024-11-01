@@ -305,7 +305,6 @@ tr {
 .acws-settings-sub {
   background-color: white;
   width: 1695px;
-  // margin-top: 10px;
   border-radius: 0px 10px 10px 10px;
   margin-top: -24px;
   margin-left: 20px;
@@ -451,3 +450,38 @@ tr {
   width: 1600px;
 }
 
+.acws-settings-payment{
+  background-color: white;
+  width: 1695px;
+  margin-top: 10px;
+  border-radius: 0px 10px 10px 10px;
+  margin-top: 2px;
+  margin-left: 20px;
+  padding-bottom: 30px;
+}
+
+.acws-settings-paymentSub{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.acws-settings-paymentSub p{
+  padding-left: 35px;
+}
+
+.acws-stripe-svg{
+ 
+}
+
+.acws-strip-div{
+  margin-left: 30px;
+  width: 550px;
+  border: rgb(223, 219, 219) solid 1px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.acws-payment-categorize{
+  display: flex;
+  gap: 10px;
+}

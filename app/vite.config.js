@@ -17,12 +17,13 @@ export default defineConfig({
     },
   },
 server: {
+    open:true,
     hmr:true,
     host: 'localhost',
     port: 3001,
     proxy: {
       '/': {
-        target: 'http://localhost/finalTouch',
+        target: 'http://localhost/finalTouch/wp-admin',
         changeOrigin: true,
         secure: false,
       }

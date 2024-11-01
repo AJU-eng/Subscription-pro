@@ -29,18 +29,20 @@ function GeneralSettings() {
       RenewalCouponDiscount: "",
     },
   });
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await axios.get(
-          `${subscriptionPluginData.apiUrl}getSettings`
-        );
-        setSettings(response.data.generalSettings);
-        console.log(response.data.generalSettings);
-      } catch (error) {}
-    }
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   async function getData() {
+  //     console.log('Hello world');
+      
+  //     try {
+  //       const response = await axios.get(
+  //         `${subscriptionPluginData.apiUrl}getSettings`
+  //       );
+  //       console.log(response.data);
+  //       setSettings(response.data.generalSettings);
+  //     } catch (error) {}
+  //   }
+  //   getData();
+  // }, []);
 
   const handleClick = async (e) => {
     e.preventDefault();

@@ -29,6 +29,15 @@ class Acws_api
                 'permission_callback'=> array($this->callback,'getPermission')
             )
         );
+        register_rest_route(
+            'acws/v1',
+            '/paymentSettings',
+            array(
+                'methods' => 'POST',
+                'callback' => array($this->callback, 'paymentSettings'),
+                'permission_callback'=> array($this->callback,'getPermission')
+            )
+        );
     }
 
 

@@ -15,10 +15,27 @@
 
 
 add_action('admin_menu', 'subscription_init_menu');
+add_action('plugins_loaded', 'subscription_pro_init', 20);
 
-require_once plugin_dir_path(__FILE__) . 'includes/acws-api.php';
-require_once plugin_dir_path(__FILE__) . 'includes/acws-callbacks.php';
-require_once plugin_dir_path(__FILE__) . 'includes/acws-hooks.php';
+
+function subscription_pro_init() {
+    // Check if WooCommerce is active
+    if (!class_exists('WooCommerce')) {
+        add_action('admin_notices', 'subscription_pro_missing_wc_notice');
+        return;
+    }
+
+    // Your plugin code
+    add_action('admin_menu', 'subscription_init_menu');
+
+    require_once plugin_dir_path(__FILE__) . 'includes/acws-api.php';
+    require_once plugin_dir_path(__FILE__) . 'includes/acws-callbacks.php';
+    require_once plugin_dir_path(__FILE__) . 'includes/acws-hooks.php';
+
+    $callbacks = new Acws_callbacks();
+    $api  = new Acws_api($callbacks);
+    new Acws_hooks();
+}
 
 
 
@@ -92,8 +109,10 @@ function subscription_admin_enqueue_scripts()
     
 }
 
-$callbacks = new Acws_callbacks();
+// $callbacks = new Acws_callbacks();
 
-$api  = new Acws_api($callbacks);
+// $api  = new Acws_api($callbacks);
 
-new Acws_hooks();
+// new Acws_hooks();
+
+
